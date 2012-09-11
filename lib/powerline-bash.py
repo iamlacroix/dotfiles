@@ -129,16 +129,17 @@ def add_cwd_segment(powerline):
 
     names = cwd.split('/')
     for n in names[:-1]:
-      powerline.append(' ' + n + ' ', 250, 237, Powerline.separator_thin, 244)
-    powerline.append(' ' + names[-1] + ' ', 254, 237)
+      powerline.append(' ' + n + ' ', 229, 237, Powerline.separator_thin, 244)
+    powerline.append(' ' + names[-1] + ' ', 193, 237)
 
 def add_root_indicator(powerline, error):
     bg = 236
-    fg = 15
+    # fg = 15
+    fg = 1
     if int(error) != 0:
         fg = 15
         bg = 161
-    p.append(' \$ ', fg, bg)
+    p.append(' ¥ ', fg, bg)
 
 if __name__ == '__main__':
     p = Powerline()
