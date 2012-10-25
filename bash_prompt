@@ -72,6 +72,18 @@ do
 done
 
 
+
+# Discover which Ruby via rbenv
+# 
+if [[ $RBENV_VERSION != "" ]]; then
+  RBENV="$(rbenv shell 2> /dev/null | tail -n1) | shell"
+elif [[ $(rbenv local 2> /dev/null | tail -n1) != "" ]]; then
+  RBENV="$(rbenv local 2> /dev/null | tail -n1) | local"
+else
+  RBENV="$(rbenv global 2> /dev/null | tail -n1) | global"
+fi
+
+
 # Git branch & status
 # 
 GIT_STATUS="\033[0;30;42m"
@@ -95,7 +107,7 @@ function parse_git_branch() {
 # 
 export PS1="
 
-${BG_WHITE}\D{%l:%M:%S %p} ${WHITE_TO_GREY}⮀ ${GREEN_GREY}\D{%a, %b %_d} ${GREY_TO_CYAN}⮀ \u${CYAN_TO_GREY}⮀ ${PINK}\h ${GREY_TO_BLACK}⮀
+${BG_WHITE}\D{%l:%M:%S %p} ${WHITE_TO_GREY}⮀ ${GREEN_GREY}\D{%a, %b %_d} ${GREY_TO_CYAN}⮀ \u${CYAN_TO_GREY}⮀ ${PINK}\h ${SEP} ${RED_ON_GREY} ${RBENV} ${GREY_TO_BLACK}⮀
 ${BG_GREY}${NEWPATH}${GREY_TO_BLACK}⮀
 $([[ -n $(git branch 2> /dev/null) ]] && echo $(parse_git_branch))${RED_ON_GREY} ¥ ${GREY_TO_BLACK}⮀${GREY} "
 }

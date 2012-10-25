@@ -38,3 +38,60 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # 
 alias bx='bundle exec'
 alias untar='tar -xvzf '
+
+# Auto-completion
+#
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+
+
+# ---------------------
+# Environment Variables
+# ---------------------
+
+# Homebrew fix (dup pkg-config in /opt/local/bin)
+# 
+export PKG_CONFIG_PATH=/usr/local/bin/pkg-config
+
+# MacPorts Installer addition on 2011-03-01_at_21:13:24: adding an appropriate PATH variable for use with MacPorts.
+# 
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
+
+# JVM -- run as client mode
+# 
+# export JAVA_OPTS="-d32"
+
+# JRuby :: Use 1.9 by default
+# 
+export JRUBY_OPTS=--1.9
+
+# TorqueBox
+# 
+# export TORQUEBOX_HOME=~/torquebox-2.1.2
+# export JBOSS_HOME=$TORQUEBOX_HOME/jboss
+# export JRUBY_HOME=$TORQUEBOX_HOME/jruby
+# export PATH=$JRUBY_HOME/bin:$PATH
+
+# TorqueBox
+# 
+# export JRUBY_HOME=~/.rbenv/shims/jruby
+# export PATH=$JRUBY_HOME/bin:$PATH
+
+# Custom Scripts Path
+# 
+export PATH=~/.bin:$PATH
+
+# Make Sublime Text the default editor
+# 
+export EDITOR='lime -n'
+
+
+# rbenv
+# 
+eval "$(rbenv init -)"
+
+# grc
+# 
+source "`brew --prefix grc`/etc/grc.bashrc"
