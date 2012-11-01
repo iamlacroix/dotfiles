@@ -4,113 +4,75 @@
 function prompt
 {
 
-# Set vars
-# 
-SEP="⮁"
-
 
 # Set Colors
 # 
-local CLEAR="\[\033[0m\]"
-local WHITE="\[\033[1;37m\]"
-local GREEN="\[\033[0;32m\]"
-local CYAN="\[\033[0;36m\]"
-local GREY="\[\033[0;37m\]"
-local BLUE="\[\033[0;34m\]"
-local PINK="\[\033[1;35m\]"
-local YELLOW="\[\033[1;33m\]"
-local LIGHT_GREEN="\[\033[1;32m\]"
-local RED="\[\033[1;31m\]"
+local RESET="\[\e[00m\]"
+local BLACK="\[\e[30m\]"
+local RED="\[\e[31m\]"
+local GREEN="\[\e[32m\]"
+local YELLOW="\[\e[33m\]"
+local BLUE="\[\e[34m\]"
+local MAGENTA="\[\e[35m\]"
+local CYAN="\[\e[36m\]"
+local WHITE="\[\e[37m\]"
 
-local BG_WHITE="\[\033[0;30;47m\]"
-local WHITE_TO_GREY="\[\033[0;37;40m\]"
-local GREEN_GREY="\[\033[0;32;40m\]"
-local GREY_TO_CYAN="\[\033[0;30;46m\]"
-local BG_CYAN="\[\033[0;30;46m\]"
-local BG_GREY="\[\033[0;0;40m\]"
-local CYAN_TO_GREY="\[\033[0;36;40m\]"
-local GREY_TO_BLACK="\[\033[0;30m\]"
-local BLUE_ON_GREY="\[\033[0;34;40m\]"
-local RED_ON_GREY="\[\033[0;31;40m\]"
-local RED_TO_BLACK="\[\033[0;31m\]"
-
-local GREY_TO_RED="\[\033[0;30;41m\]"
-
-
-# Fetch path elements
-# 
-SPLITPATH=()
-for i in $(echo $PWD | tr '/' ' ')
-do
-  SPLITPATH+=($i)
-done
-
-
-# Set ~ for home directory
-# 
-START=0
-if [ "/${SPLITPATH[0]}/${SPLITPATH[1]}" = $HOME ]
-then
-  START=1
-  SPLITPATH[1]="~"
-fi
-
-
-# Iterate through path elements
-# 
-NEWPATH=" "
-MAX=${#SPLITPATH[@]}
-MAX=$((MAX-1))
-for (( i = $START ; i < ${#SPLITPATH[@]} ; i++ ))
-do
-  if [ ! $i = $MAX ]
-  then
-    NEWPATH+="${SPLITPATH[$i]} ${SEP} "
-  else
-    NEWPATH+="${BLUE_ON_GREY}${SPLITPATH[$i]} "
-  fi
-done
-
+local ON_BLACK="\[\e[40m\]"
+local ON_WHITE="\[\e[47m\]"
 
 
 # Discover which Ruby via rbenv
 # 
 if [[ $RBENV_VERSION != "" ]]; then
-  RBENV="$(rbenv shell 2> /dev/null | tail -n1) | shell"
+  RBENV="$(rbenv shell 2> /dev/null | tail -n1) (S)"
 elif [[ $(rbenv local 2> /dev/null | tail -n1) != "" ]]; then
-  RBENV="$(rbenv local 2> /dev/null | tail -n1) | local"
+  RBENV="$(rbenv local 2> /dev/null | tail -n1) (L)"
 else
-  RBENV="$(rbenv global 2> /dev/null | tail -n1) | global"
+  RBENV="$(rbenv global 2> /dev/null | tail -n1) (G)"
 fi
 
 
 # Git branch & status
 # 
-GIT_STATUS="\033[0;30;42m"
-GIT_STATUS_END="\033[0;32;40m"
+GIT_STATUS="\[\e[32m\]√"
 
 # When git is dirty
 # 
 if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]
 then
-  GIT_STATUS="\033[0;30;45m"
-  GIT_STATUS_END="\033[0;35;40m"
+  GIT_STATUS="\[\e[35m\]∆"
 fi
 
 function parse_git_branch() {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/$(echo -e ${GIT_STATUS}) \1 $(echo -e "${GIT_STATUS_END}⮀")/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1/"
 }
 
 
+# Get weather
+# 
+FORECAST=""
+WEATHER_FILE="$HOME/.weather"
 
-# Layout
+if [ -e $WEATHER_FILE ] && [ -f $WEATHER_FILE ] && [ -s $WEATHER_FILE ] && [ -r $WEATHER_FILE ]
+then
+  TEMP=`cat $WEATHER_FILE`
+  FORECAST="${BLUE}› ${WHITE}${TEMP}° "
+fi
+
+
+# Prompt Layout
+# 
+# [time] › [date] › [temperature]  [user]@[host] ⚡ [ruby version] ([rbenv global|local|shell])
+# [git icon (check or delta)] [git branch] • [current path]
+# ¥
 # 
 export PS1="
+${ON_BLACK}${YELLOW}\D{%l:%M:%S %p} ${BLUE}› ${WHITE}\D{%a, %b %_d} ${FORECAST}${RESET}${BLUE} \u@\h ${YELLOW}⚡ ${RED}${RBENV} 
+$([[ -n $(git branch 2> /dev/null) ]] && echo ${GIT_STATUS} $(parse_git_branch) ${YELLOW}• ${RESET})${CYAN}\w
+${RED}¥ ${RESET}"
 
-${BG_WHITE}\D{%l:%M:%S %p} ${WHITE_TO_GREY}⮀ ${GREEN_GREY}\D{%a, %b %_d} ${GREY_TO_CYAN}⮀ \u${CYAN_TO_GREY}⮀ ${PINK}\h ${SEP} ${RED_ON_GREY} ${RBENV} ${GREY_TO_BLACK}⮀
-${BG_GREY}${NEWPATH}${GREY_TO_BLACK}⮀
-$([[ -n $(git branch 2> /dev/null) ]] && echo $(parse_git_branch))${RED_ON_GREY} ¥ ${GREY_TO_BLACK}⮀${GREY} "
-}
+} # END function `prompt`
+
 
 
 # Init the prompt

@@ -83,9 +83,9 @@ export JRUBY_OPTS=--1.9
 # 
 export PATH=~/.bin:$PATH
 
-# Make Sublime Text the default editor
+# Make Vim the default editor
 # 
-export EDITOR='lime -n'
+export EDITOR='vim'
 
 
 # rbenv
