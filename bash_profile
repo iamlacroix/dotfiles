@@ -60,7 +60,3 @@ export EDITOR='vim'
 # rbenv
 # 
 eval "$(rbenv init -)"
-
-# grc
-# 
-source "`brew --prefix grc`/etc/grc.bashrc"
