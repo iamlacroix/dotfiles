@@ -47,41 +47,10 @@ fi
 
 
 
-# ---------------------
-# Environment Variables
-# ---------------------
-
-# Homebrew fix (dup pkg-config in /opt/local/bin)
-# 
-export PKG_CONFIG_PATH=/usr/local/bin/pkg-config
-
-# MacPorts Installer addition on 2011-03-01_at_21:13:24: adding an appropriate PATH variable for use with MacPorts.
-# 
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
-
-# JVM -- run as client mode
-# 
-# export JAVA_OPTS="-d32"
-
 # JRuby :: Use 1.9 by default
 # 
 export JRUBY_OPTS=--1.9
 
-# TorqueBox
-# 
-# export TORQUEBOX_HOME=~/torquebox-2.1.2
-# export JBOSS_HOME=$TORQUEBOX_HOME/jboss
-# export JRUBY_HOME=$TORQUEBOX_HOME/jruby
-# export PATH=$JRUBY_HOME/bin:$PATH
-
-# TorqueBox
-# 
-# export JRUBY_HOME=~/.rbenv/shims/jruby
-# export PATH=$JRUBY_HOME/bin:$PATH
-
-# Custom Scripts Path
-# 
-export PATH=~/.bin:$PATH
 
 # Make Vim the default editor
 # 
