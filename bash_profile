@@ -35,28 +35,34 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 
 # Handy shortcuts
-# 
 alias bx='bundle exec'
 alias untar='tar -xvzf '
 
 # Auto-completion
-#
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
+# Git-completion
+if [ -f $HOME/dotfiles/git/completion.bash ]; then
+  . $HOME/dotfiles/git/completion.bash
+fi
 
+
+# Set Java home
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home/bin/
 
 # JRuby :: Use 1.9 by default
-# 
 export JRUBY_OPTS=--1.9
+
+# Use Drip for fast JVM startup
+# export JAVACMD=drip
 
 
 # Make Vim the default editor
-# 
 export EDITOR='vim'
 
 
 # rbenv
-# 
 eval "$(rbenv init -)"
