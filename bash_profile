@@ -38,6 +38,15 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias bx='bundle exec'
 alias untar='tar -xvzf '
 
+# Create a new Rails application with the LaCroix Design Co. template
+function railstemplate() {
+  if [ $1 ]; then
+    rails new $1 -m https://github.com/iamlacroix/rails-template/raw/master/template.rb
+  else
+    echo "Please provide a name for the application."
+  fi
+}
+
 # Auto-completion
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
