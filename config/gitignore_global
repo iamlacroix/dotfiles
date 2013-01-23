@@ -1,0 +1,6 @@
+vendor/bundle
+.DS_Store
+*.sass-cache
+.powder
+config/initializers/dev_environment.rb
+caches/
