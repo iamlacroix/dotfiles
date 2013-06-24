@@ -38,7 +38,7 @@ GIT_STATUS="\[\e[32m\]√"
 
 # When git is dirty
 # 
-if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]
+if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]]
 then
   GIT_STATUS="\[\e[35m\]∆"
 fi
@@ -67,7 +67,7 @@ fi
 # ¥
 # 
 export PS1="
-${ON_BLACK}${YELLOW}\D{%l:%M:%S %p} ${BLUE}› ${WHITE}\D{%a, %b %_d} ${FORECAST}${RESET}${BLUE} \u@\h ${YELLOW}⚡ ${RED}${RBENV} 
+${ON_BLACK}${YELLOW}\D{%l:%M:%S %p} ${BLUE}› ${WHITE}\D{%a, %b %_d} ${RESET} ${BLUE}\u@\h ${BLACK}★ ${RED}${RBENV} 
 $([[ -n $(git branch 2> /dev/null) ]] && echo ${GIT_STATUS} $(parse_git_branch) ${YELLOW}• ${RESET})${CYAN}\w
 ${RED}¥ ${RESET}"
 

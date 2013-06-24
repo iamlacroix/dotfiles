@@ -1,5 +1,5 @@
 #!/bin/bash
-# 
+#
 # Install/symlink everything
 
 # TODO install OS X "command line tools"
@@ -12,6 +12,9 @@
 
 # TODO install ruby
 # TODO install gems
+# TODO install kerl
+# TODO install elixir
+# TODO install nodejs
 # TODO install npm modules
 # TODO install vagrant
 # TODO install fresh
