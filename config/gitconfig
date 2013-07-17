@@ -1,33 +1,35 @@
 [user]
-	name = Michael LaCroix
-	email = michael@lacroixdesign.net
+  name = Michael LaCroix
+  email = michael@lacroixdesign.net
 [color]
-	status = auto
-	branch = auto
-	interactive = auto
-	diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  diff = auto
 [core]
-	editor = vim
-	excludesfile = /Users/michael/.gitignore_global
-	quotepath = false
+  editor = vim
+  excludesfile = /Users/michael/.gitignore_global
+  quotepath = false
 [heroku]
-	account = ldc
+  account = ldc
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [alias]
-	cc = commit
-	cm = commit -m 
-	ac = commit -a -m 
-	ss = status
-	co = checkout
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	logg = log --graph --decorate --abbrev-commit
-	r = remote
-	p = push
-	b = branch
-	kdiff = difftool -y -t Kaleidoscope
-	lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(green)%d%Creset %C(bold white)%s • %C(blue)(%cr) %C(yellow)<%an>%Creset' --abbrev-commit --date=relative
-	lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	lgs = log --graph --pretty=format:'%C(red)%C(black reverse magenta) %h %Creset%C(red)%d%Creset %C(yellow)%cr %C(bold blue)<%an>%Creset%C(bold white)%n%Creset          %s%n' --abbrev-commit --date=relative
+  cc = commit
+  cm = commit -m 
+  ac = commit -a -m 
+  ss = status
+  co = checkout
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  logg = log --graph --decorate --abbrev-commit
+  r = remote
+  p = push
+  b = branch
+  kdiff = difftool -y -t Kaleidoscope
+  lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(green)%d%Creset %C(bold white)%s • %C(blue)(%cr) %C(yellow)<%an>%Creset' --abbrev-commit --date=relative
+  lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lgs = log --graph --pretty=format:'%C(red)%C(black reverse magenta) %h %Creset%C(red)%d%Creset %C(yellow)%cr %C(bold blue)<%an>%Creset%C(bold white)%n%Creset          %s%n' --abbrev-commit --date=relative
 [mergetool]
-	keepBackup = true
+  keepBackup = true
+[push]
+  default = simple
