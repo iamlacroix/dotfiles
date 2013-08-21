@@ -55,18 +55,6 @@ function parse_git_branch() {
 }
 
 
-# Get weather
-#
-FORECAST=""
-WEATHER_FILE="$HOME/.weather"
-
-if [ -e $WEATHER_FILE ] && [ -f $WEATHER_FILE ] && [ -s $WEATHER_FILE ] && [ -r $WEATHER_FILE ]
-then
-  TEMP=`cat $WEATHER_FILE`
-  FORECAST="${BLUE}› ${WHITE}${TEMP}° "
-fi
-
-
 # Prompt Layout
 #
 # [time] › [date] › [temperature]  [user]@[host] ⚡ [ruby version] ([rbenv global|local|shell])
