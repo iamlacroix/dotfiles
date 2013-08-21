@@ -16,13 +16,12 @@
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [alias]
   cc = commit
-  cm = commit -m 
-  ac = commit -a -m 
   ss = status
   co = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   logg = log --graph --decorate --abbrev-commit
   r = remote
+  rv = remote -v
   p = push
   b = branch
   kdiff = difftool -y -t Kaleidoscope
