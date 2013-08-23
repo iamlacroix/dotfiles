@@ -1,0 +1,25 @@
+# See http://freshshell.com/readme for documentation.
+
+fresh freshshell/fresh bin/fresh --bin
+
+# Config files -- individual
+fresh config/gitconfig --file=~/.gitconfig
+fresh config/gitignore_global --file=~/.gitignore_global
+fresh config/vimrc --file=~/.vimrc
+fresh config/pryrc.rb --file=~/.pryrc
+fresh config/mongorc.js --file=~/.mongorc.js
+fresh config/virtualhost.sh.conf --file=~/.virtualhost.sh.conf
+
+# Config files -- directories
+fresh config/bundle --file=~/.bundle/
+fresh config/grc --file=~/.grc/
+
+# Bash
+fresh bash/bash_profile.bash
+fresh git/completion.bash
+fresh bower/bower_completion.bash
+fresh "aliases/*"
+# fresh "lib/*" # TODO remove folder or add files to it
+
+# Prompt theme
+fresh bash/bash_prompt.bash
