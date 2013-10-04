@@ -17,6 +17,13 @@ Bundle "tpope/vim-surround"
 Bundle "tpope/vim-endwise"
 Bundle "vim-ruby/vim-ruby"
 Bundle "xenoterracide/html.vim"
+Bundle "digitaltoad/vim-jade"
+Bundle "moll/vim-node"
+Bundle "scrooloose/syntastic"
+Bundle "jelera/vim-javascript-syntax"
+Bundle "walm/jshint.vim"
+Bundle "godlygeek/tabular"
+Bundle "jistr/vim-nerdtree-tabs"
 Bundle "mhinz/vim-startify"
 
 " vim-scripts repos
@@ -25,6 +32,7 @@ Bundle "FuzzyFinder"
 Bundle "Align"
 Bundle "AutoAlign"
 Bundle "SuperTab"
+Bundle "tComment"
 
 " settings
 set nocompatible

@@ -15,3 +15,10 @@ alias grep='grep --color=auto'
 function npmls() {
   npm ls --depth=0 "$@" 2>/dev/null
 }
+
+# ps aux | grep $@
+#
+function psg() {
+	ps aux | grep $@
+}
+
