@@ -21,21 +21,38 @@ local ON_BLACK="\[\e[40m\]"
 local ON_WHITE="\[\e[47m\]"
 
 
-# Discover which Ruby via rbenv
+# Ruby version
 #
-if [[ $RBENV_VERSION != "" ]]; then
-  RBENV="$(rbenv shell 2> /dev/null | tail -n1) (S)"
-elif [[ $(rbenv local 2> /dev/null | tail -n1) != "" ]]; then
-  RBENV="$(rbenv local 2> /dev/null | tail -n1) (L)"
+STR="$(ruby -v 2> /dev/null)"
+if [[ $STR != "" ]]; then
+  IFS=' ' read -ra ARR <<< "$STR"
+  RB_ENGINE=${ARR[0]}
+  RB_VERSION=${ARR[1]}
+  if [[ $RB_ENGINE == "rubinius" ]]; then
+    RB_ENGINE="rbx"
+  fi
+  RUBY_VER="${RB_ENGINE}/${RB_VERSION}"
 else
-  RBENV="$(rbenv global 2> /dev/null | tail -n1) (G)"
+  RUBY_VER=""
+fi
+unset STR
+
+if [[ $RUBY_VER != '' ]]; then
+  RUBY_STR=" ${BLACK}★ ${RED}${RUBY_VER}${RESET}"
+else
+  RUBY_STR=""
 fi
 
 
-# Discover which Node.js
+# Node.js version
 #
-if [[ $(which node 2> /dev/null | tail -n1) != "" ]]; then
-  NODE_VER="$(node -v 2> /dev/null | tail -n1)"
+NODE_VER="$(node -v 2> /dev/null)"
+NODE_VER=${NODE_VER/"v"/""}
+
+if [[ $NODE_VER != '' ]]; then
+  NODE_STR=" ${BLACK}☆ ${YELLOW}node/${NODE_VER}"
+else
+  NODE_STR=""
 fi
 
 
@@ -55,14 +72,15 @@ function parse_git_branch() {
 }
 
 
+
 # Prompt Layout
 #
-# [time] › [date] › [temperature]  [user]@[host] ⚡ [ruby version] ([rbenv global|local|shell])
+# [time] › [date] › [temperature]  [user]@[host] ★ [ruby version] ☆ [node version]
 # [git icon (check or delta)] [git branch] • [current path]
 # ¥
 #
 export PS1="
-${ON_BLACK}${YELLOW}\D{%l:%M:%S %p} ${BLUE}› ${WHITE}\D{%a, %b %_d} ${RESET} ${BLUE}\u@\h ${BLACK}★ ${RED}${RBENV}${RESET} ${BLACK}☆ ${YELLOW}${NODE_VER}
+${ON_BLACK}${YELLOW}\D{%l:%M:%S %p} ${BLUE}› ${WHITE}\D{%a, %b %_d} ${RESET} ${BLUE}\u@\h${RUBY_STR}${NODE_STR}
 $([[ -n $(git branch 2> /dev/null) ]] && echo ${GIT_STATUS} $(parse_git_branch) ${YELLOW}• ${RESET})${CYAN}\w
 ${RED}¥ ${RESET}"
 
