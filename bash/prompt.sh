@@ -75,7 +75,7 @@ function parse_git_branch() {
 
 # Prompt Layout
 #
-# [time] › [date] › [temperature]  [user]@[host] ★ [ruby version] ☆ [node version]
+# [time] › [date] › [temperature]  [user]@[host] ★ [ruby/version] ☆ [node/version]
 # [git icon (check or delta)] [git branch] • [current path]
 # ¥
 #
