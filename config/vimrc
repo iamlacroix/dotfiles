@@ -2,7 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 " let Vundle manage Vundle
-" required! 
+" required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -36,11 +36,12 @@ Bundle "tComment"
 
 " settings
 set nocompatible
-set background=dark 
+set background=dark
 colorscheme Tomorrow-Night-Eighties
 filetype indent plugin on
 syntax on
 
+set shell=$SHELL
 set hidden
 set wildmenu
 set showcmd
