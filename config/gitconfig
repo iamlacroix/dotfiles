@@ -25,7 +25,7 @@
   p = push
   b = branch
   kdiff = difftool -y -t Kaleidoscope
-  lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(green)%d%Creset %C(bold white)%s • %C(blue)(%cr) %C(yellow)<%an>%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(bold green)%d%Creset %C(white)%s • %C(bold blue)(%cr)%Creset %C(yellow)<%an>%Creset' --abbrev-commit --date=relative
   lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lgs = log --graph --pretty=format:'%C(red)%C(black reverse magenta) %h %Creset%C(red)%d%Creset %C(yellow)%cr %C(bold blue)<%an>%Creset%C(bold white)%n%Creset          %s%n' --abbrev-commit --date=relative
 [mergetool]

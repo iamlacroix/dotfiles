@@ -24,7 +24,7 @@ function node_version() {
     version=${version/"v"/""}
     # symbol ●○⦿⨀⊙
     # color 143, 144 or yellow
-    echo " %{$FG[144]%}⦿ ${version}%{$reset_color%}"
+    echo " %{$FG[143]%}⦿ ${version}%{$reset_color%}"
   fi
 }
 
@@ -41,15 +41,17 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%}➜ "
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%}═ "
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}✭ "
 
-local name="%{$reset_color%}%n%{$reset_color%}"
 local pwd="%{$fg[magenta]%}%c%{$reset_color%}"
+local name="%{$fg[cyan]%}%n%{$reset_color%}"
 local time="%{$FG[244]%}%*%{$reset_color%}"
 local divider="%{$fg[black]%}:%{$reset_color%}"
 local prefix="[${pwd}${divider}${name}${divider}${time}]"
 # local git_prompt='$(git_prompt_status)$(git_prompt_info)'
 
-local line1=$'\n%{$FG[243]%}╭─%{$reset_color%}${prefix}'
-local line2=$'\n%{$FG[243]%}╰─%{$fg[red]%}¥%{$reset_color%} '
+# local line1=$'\n%{$FG[243]%}╭─%{$reset_color%}${prefix}'
+# local line2=$'\n%{$FG[243]%}╰─%{$fg[red]%}¥%{$reset_color%} '
+local line1=$'\n%{$FG[248]%}╭─%{$reset_color%}${prefix}——%{$FG[209]%}⦿%{$reset_color%}'
+local line2=$'\n%{$FG[248]%}╰─%{$FG[209]%}⦿%{$reset_color%} '
 
 PROMPT="${line1}${line2}"
 RPROMPT='$(ruby_version)$(node_version)$(git_prompt_info)'
