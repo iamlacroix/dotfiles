@@ -3,7 +3,7 @@ function init() {
   local lib="lib"
 
   source $base/$lib/util.sh
-  source $base/$lib/rails.sh
+  source $base/$lib/ruby.sh
   source $base/$lib/node.sh
   source $base/$lib/aliases.sh
 
