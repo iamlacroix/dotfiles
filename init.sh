@@ -1,11 +1,13 @@
 function init() {
   local base="$DOT" && [[ $DOT == "" ]] && base="$HOME/.dotfiles"
   local lib="lib"
+  local vendor="vendor"
 
   source $base/$lib/util.sh
   source $base/$lib/ruby.sh
   source $base/$lib/node.sh
   source $base/$lib/aliases.sh
+  # source $base/$vendor/svm.sh
 
   # zsh
   # if [[ $ZSH_NAME != '' ]]; then
