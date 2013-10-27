@@ -3,11 +3,13 @@ function init() {
   local lib="lib"
   local vendor="vendor"
 
+  export PATH="$base/bin:$PATH"
+
   source $base/$lib/util.sh
   source $base/$lib/ruby.sh
   source $base/$lib/node.sh
+  source $base/$lib/scala.sh
   source $base/$lib/aliases.sh
-  # source $base/$vendor/svm.sh
 
   # zsh
   # if [[ $ZSH_NAME != '' ]]; then
