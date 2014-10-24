@@ -3,7 +3,7 @@ function init() {
   local lib="lib"
   local vendor="vendor"
 
-  export PATH="$base/bin:$PATH"
+  export PATH="$base/bin:/usr/local/sbin:$PATH"
 
   source $base/$lib/util.sh
   source $base/$lib/ruby.sh
