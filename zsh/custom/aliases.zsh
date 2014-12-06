@@ -1,5 +1,5 @@
 # reload shell config
-alias reload='source $HOME/.zshrc'
+alias reload='source $HOME/.zshrc && source $HOME/.zshenv'
 
 # listing files
 alias l='ls -F'
