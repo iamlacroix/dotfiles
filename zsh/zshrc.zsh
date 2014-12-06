@@ -1,7 +1,3 @@
-# source ~/.fresh/build/shell.sh
-# export DOT=$HOME/.dotfiles
-# export FRAMEWORKS=$HOME/Frameworks
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$DOTFILES/zsh/custom
@@ -21,9 +17,3 @@ ZSH_THEME="shibuya"
 plugins=(git npm extract mix brew bower vagrant heroku lein golang)
 
 source $ZSH/oh-my-zsh.sh
-# source $DOT/init.sh
-
-# aliases
-# alias adb='~/Frameworks/Android/platform-tools/adb'
-# alias mysqlstart='sudo /usr/local/mysql/bin/mysqld_safe'
-# alias mysqlstop='sudo /usr/local/mysql/bin/mysqladmin -u root shutdown'
