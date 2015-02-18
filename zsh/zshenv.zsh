@@ -6,4 +6,4 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 
 # chruby setup
 source /opt/boxen/env.sh
-chruby 2.1
+chruby 2.2
