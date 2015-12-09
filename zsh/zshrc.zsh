@@ -14,6 +14,9 @@ ZSH_THEME="shibuya"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm extract mix brew bower vagrant heroku lein golang)
+# Plugins no longer used: lein golang
+plugins=(git npm brew bower extract mix vagrant heroku docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
+
+chruby 2.1
