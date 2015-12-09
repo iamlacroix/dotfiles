@@ -1,6 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+let mapleader=" "
+
 " let Vundle manage Vundle
 " required!
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,12 +10,18 @@ call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
 
+" Themes
+Plugin 'mkarmona/colorsbox'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'altercation/vim-colors-solarized'
+" Plugin 'chriskempson/base16-vim'
+" Plugin 'chriskempson/vim-tomorrow-theme'
+
 " repos on github
-Plugin 'chriskempson/base16-vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-haml'
+"Plugin 'tpope/vim-rails'
+"Plugin 'tpope/vim-haml'
+Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -40,6 +48,10 @@ Plugin 'tComment'
 " settings
 set nocompatible
 set background=dark
+"set background=light
+"silent! colorscheme colorsbox-material
+"silent! colorscheme PaperColor
+"silent! colorscheme solarized
 "silent! colorscheme Tomorrow-Night-Bright
 "colorscheme Tomorrow-Night-Eighties
 filetype indent plugin on
