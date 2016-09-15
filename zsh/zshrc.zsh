@@ -26,6 +26,3 @@ fi
 if [ -f "$HOME/.asdf/completions/asdf.bash" ]; then
   . $HOME/.asdf/completions/asdf.bash
 fi
-
-# Set default Ruby version
-chruby 2.1
