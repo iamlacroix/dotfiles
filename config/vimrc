@@ -47,8 +47,8 @@ Plugin 'tComment'
 
 " settings
 set nocompatible
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 "silent! colorscheme colorsbox-material
 "silent! colorscheme PaperColor
 "silent! colorscheme solarized
