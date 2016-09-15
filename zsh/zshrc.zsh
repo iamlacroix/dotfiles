@@ -14,9 +14,18 @@ ZSH_THEME="shibuya"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# Plugins no longer used: lein golang
-plugins=(git npm brew bower extract mix vagrant heroku docker docker-compose)
+# Plugins no longer used: lein golang mix vagrant
+plugins=(git npm brew bower extract nvm heroku docker docker-compose mix)
 
 source $ZSH/oh-my-zsh.sh
 
+# asdf
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  . $HOME/.asdf/asdf.sh
+fi
+if [ -f "$HOME/.asdf/completions/asdf.bash" ]; then
+  . $HOME/.asdf/completions/asdf.bash
+fi
+
+# Set default Ruby version
 chruby 2.1
