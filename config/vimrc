@@ -1,86 +1,58 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
-
+set encoding=utf-8
 let mapleader=" "
+filetype on
 
-" let Vundle manage Vundle
-" required!
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+syntax enable
+set background=dark
+colorscheme onedark
 
-Plugin 'gmarik/Vundle.vim'
+" Plugin options
 
-" Themes
-Plugin 'mkarmona/colorsbox'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'altercation/vim-colors-solarized'
-" Plugin 'chriskempson/base16-vim'
-" Plugin 'chriskempson/vim-tomorrow-theme'
+let g:javascript_plugin_flow = 1
+let g:onedark_terminal_italics = 1
 
-" repos on github
-Plugin 'scrooloose/nerdtree'
-"Plugin 'tpope/vim-rails'
-"Plugin 'tpope/vim-haml'
-Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'xenoterracide/html.vim'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'moll/vim-node'
-Plugin 'scrooloose/syntastic'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'walm/jshint.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'mhinz/vim-startify'
+" Key bindings
 
-" vim-scripts repos
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'Align'
-Plugin 'AutoAlign'
-Plugin 'SuperTab'
-Plugin 'tComment'
+" Save
+map <leader>ww :w<CR>
+" Quit
+map <leader>qq :q<CR>
+" Find files
+map <leader>t :FZF<CR>
+" Find files
+map <leader>p :FZF<CR>
+" Open recent files list
+map <leader>e :MRU<CR>
+" Open a file
+map <leader>o :e<SPACE>
+map <leader>O :e <C-R>=expand("%:h") . "/" <CR>
+" Switch between the two most recent files
+map <leader><SPACE> :e #<CR>
 
-" settings
-set nocompatible
-"set background=dark
-set background=light
-"silent! colorscheme colorsbox-material
-"silent! colorscheme PaperColor
-"silent! colorscheme solarized
-"silent! colorscheme Tomorrow-Night-Bright
-"colorscheme Tomorrow-Night-Eighties
-filetype indent plugin on
-syntax on
+map <leader>u :MundoToggle<CR>
+map <leader>\ :NERDTreeToggle<CR>
+map <leader>ii :PlugInstall<CR>
+map <leader>rr :so $MYVIMRC<CR>
 
-set shell=$SHELL
-set hidden
-set wildmenu
-set showcmd
-set hlsearch
-set ignorecase
-set smartcase
-set confirm
-set laststatus=2
+" Highlight regions
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
-set shiftwidth=2
+" Tabs
+
+" - Two spaces wide
 set tabstop=2
-set autoindent
-set backspace=indent,eol,start
-set smarttab
-set visualbell
-set mouse=a
-set number
+set softtabstop=2
+" - Expand them all
+set expandtab
+" - Indent by 2 spaces by default
+set shiftwidth=2
+set showtabline=0
 
-set incsearch
+" Highlight cursor position
+set cursorline
+set cursorcolumn
 
-nnoremap <C-L> :nohl<CR><C-L>
-set guifont=Source\ Code\ Pro:h12
-
-if has('gui_running')
-	set guioptions=egmrt
-endif
+" Undo
+set undofile
+set undodir=~/.vim/undo
