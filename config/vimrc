@@ -5,6 +5,12 @@ filetype on
 syntax enable
 set background=dark
 colorscheme onedark
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+" set t_ZH=^[[3m
+" set t_ZR=^[[23m
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
 
 " Plugin options
 

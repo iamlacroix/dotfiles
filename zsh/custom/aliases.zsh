@@ -1,5 +1,5 @@
 # reload shell config
-alias reload='echo "exec -l $SHELL"; echo "Reloading shell..."; exec -l $SHELL'
+alias reload='echo "source $HOME/.zshrc"; source $HOME/.zshrc'
 
 # listing files
 alias l='ls -F'

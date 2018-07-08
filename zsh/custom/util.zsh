@@ -17,3 +17,6 @@ command_exists () {
 if command_exists nvim ; then
   alias vim='nvim'
 fi
+
+# Switch back to default TERM for ssh
+alias ssh="TERM=xterm-256color ssh"
